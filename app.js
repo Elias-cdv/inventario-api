@@ -1,20 +1,20 @@
 require("dotenv").config();
-const productRoutes = require("./routes/products");
 const express = require("express");
 const app = express();
 const { initDb } = require("./db/connect");
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+const productRoutes = require("./routes/products"); // Importa tus rutas
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
 app.use(express.json());
 
+// Documentación
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Rutas reales
 app.use("/products", productRoutes);
 
-// Ruta básica para probar que conecta
-app.use("/products", (req, res) => {
-  res.json({ message: "Servidor conectado y funcionando" });
-});
-
+// Iniciar servidor
 initDb((err) => {
   if (err) {
     console.log("Error de conexión:", err);
