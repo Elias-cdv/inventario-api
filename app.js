@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const { initDb } = require("./db/connect");
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(express.json());
 
 // Ruta básica para probar que conecta
