@@ -5,8 +5,8 @@ const doc = {
     title: "Mi API de Inventario",
     description: "Documentación del Proyecto CRUD",
   },
-  host: "localhost:8080",
-  schemes: ["http"],
+  host: "inventario-api-ypaj.onrender.com",
+  schemes: ["https"],
 };
 
 const outputFile = "./swagger.json";
