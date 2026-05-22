@@ -11,7 +11,7 @@
     "https"
   ],
   "paths": {
-    "/": {
+    "/products/": {
       "get": {
         "description": "",
         "responses": {
@@ -58,7 +58,7 @@
         }
       }
     },
-    "/{id}": {
+    "/products/{id}": {
       "put": {
         "description": "",
         "parameters": [
