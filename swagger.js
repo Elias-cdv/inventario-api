@@ -7,6 +7,7 @@ const doc = {
   },
   host: "inventario-api-ypaj.onrender.com",
   schemes: ["https"],
+  basePath: "/",
 };
 
 const outputFile = "./swagger.json";
