@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "host": "inventario-api-ypaj.onrender.com",
-  "basePath": "/",
+  "basePath": "/products",
   "schemes": [
     "https"
   ],
