@@ -5,10 +5,10 @@
     "description": "Documentación del Proyecto CRUD",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "inventario-api-ypaj.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
