@@ -69,17 +69,42 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Product data to create",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Iced Lemon Tea"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Refreshing natural lemonade tea"
                 },
                 "price": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 1.25
+                },
+                "cost": {
+                  "type": "number",
+                  "example": 0.4
+                },
+                "stock": {
+                  "type": "number",
+                  "example": 50
+                },
+                "category": {
+                  "type": "string",
+                  "example": "Beverage"
                 },
                 "sku": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "LEM-TEA-01"
+                },
+                "expirationDate": {
+                  "type": "string",
+                  "example": "2026-06-15"
                 }
               }
             }
@@ -110,6 +135,49 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Product data to update",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Iced Lemon Tea"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Refreshing natural lemonade tea"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 1.5
+                },
+                "cost": {
+                  "type": "number",
+                  "example": 0.4
+                },
+                "stock": {
+                  "type": "number",
+                  "example": 45
+                },
+                "category": {
+                  "type": "string",
+                  "example": "Beverage"
+                },
+                "sku": {
+                  "type": "string",
+                  "example": "LEM-TEA-01"
+                },
+                "expirationDate": {
+                  "type": "string",
+                  "example": "2026-06-15"
+                }
+              }
+            }
           }
         ],
         "responses": {
