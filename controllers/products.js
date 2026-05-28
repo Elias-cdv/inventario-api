@@ -30,14 +30,26 @@ const createProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   if (!req.params.id) return res.status(400).json({ message: "ID necesario" });
-  const productId = new ObjectId(req.params.id);
+
   try {
+    const productId = new ObjectId(req.params.id);
+
+    // 1. Clonamos el cuerpo de la petición
+    const productData = { ...req.body };
+
+    // 2. ¡EL TRUCO EXTRA! Borramos el _id si es que viene metido en el body de Swagger
+    delete productData._id;
+
+    // 3. Ejecutamos el reemplazo con el objeto limpio
     const response = await getDb()
       .collection("products")
-      .replaceOne({ _id: productId }, req.body);
-    if (response.matchedCount === 0)
+      .replaceOne({ _id: productId }, productData);
+
+    if (response.matchedCount === 0) {
       return res.status(404).json({ message: "No se encontró el producto" });
-    res.status(204).send(); // 204 = Éxito sin contenido
+    }
+
+    res.status(204).send(); // Éxito sin contenido
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
